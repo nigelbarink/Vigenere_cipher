@@ -49,14 +49,16 @@ def vignette_encrypt (message, key, mode):
 
 while True :
     mode = input("[e]ncrypt or [d]ecrypt: ")
-    message = input ("Voer hier je plaintext in: ")
+    messageMode =  "plaintext" if mode == 'e' else "ciphertext"
+    message = input ("Enter your {0}:".format(messageMode))
     if (message == '' ):
         break
-    key = input("Voer hier je sleutel in: ")
+    key = input("Enter your key: ")
     if (key == ''):
-        print('Must have a key if atleast one valid charater')
+        print('Must have a key of atleast one valid charater')
 
-    print ("Encrypted message is: ")
+    answerText = "Encrypted version of your personal message:" if mode == 'e' else "Encrypted message says: "
+    print (answerText)
     print (vignette_encrypt(message,key, mode))
     print ('')
     
